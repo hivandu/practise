@@ -1,5 +1,7 @@
 .DS_Store
 *.icloud
+.vscode/
+.ipynb_checkpoints/
 Thumbs.db
 db.json
 debug.log
