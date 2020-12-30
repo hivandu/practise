@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -16,7 +16,7 @@ data = pd.read_csv('/Users/du/SynologyDrive/storage/code/data/45/data/UCI_Credit
 
 # 数据探索
 print(data.shape) # 查看数据集的大小
-print(data.describe()) # 数据集概览
+# print(data.describe()) # 数据集概览
 
 # 查看下一个月违约率的情况
 next_month = data['default.payment.next.month'].value_counts()
@@ -50,7 +50,7 @@ classifiers = [
     DecisionTreeClassifier(random_state = 1, criterion='gini'),
     RandomForestClassifier(random_state = 1, criterion='gini'),
     KNeighborsClassifier(metric = 'minkowski'),
-    AdaBoostClassifier(random_state=1)
+    AdaBoostClassifier(random_state = 1)
 ]
 
 # 分类器名称
@@ -59,7 +59,7 @@ classifier_names = [
     'decisiontreeclassifier',
     'randomforestclassifier',
     'kneighborsclassifier',
-    'AdaBoostClassifier'
+    'adaBoostClassifier'
 ]
 
 # 分类器参数
@@ -68,14 +68,15 @@ classifier_param_grid = [
     {'decisiontreeclassifier__max_depth':[6,9,11]},
     {'randomforestclassifier__n_estimators':[3,5,6]},
     {'kneighborsclassifier__n_neighbors':[4,6,8]},
-    {'adaBoostclassifier__n_neighbors':[10,50,100]}
+    {'adaBoostClassifier__n_estimators':[10,50,100]}
 ]
 
 # 对具体的分类器进行GridSearchCV参数调优
 def GridSearchCV_work(pipepline, train_x, train_y, test_x, test_y, param_grid, score='accuracy'):
     print('\n','*'*30,'\n分类器信息:\n')
-    response = {}
-    gridsearch = GridSearchCV(estimator = pipeline, param_grid=param_grid, scoring=score)
+    response = {}    
+    gridsearch = GridSearchCV(estimator=pipeline, param_grid=param_grid, scoring=score)
+
     # 寻找最优的参数 和最优的准确率分数
     search = gridsearch.fit(train_x, train_y)
     print(f'GS最优参数:{search.best_params_}')
