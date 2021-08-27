@@ -1,0 +1,54 @@
+# Ruby 从入门到精通
+
+# 第一篇 基础与脚手架
+## 第一章 让它跑起来，安装Ruby
+### 1.1 安装Ruby
+#### 1.1.1 windows
+#### 1.1.2 Apple Mac OS X
+#### 1.1.3 Linux
+### 1.2 小结
+
+## 第二章 编程等于快乐: Ruby和面向对象概览
+### 2.1 初始步骤
+#### 2.1.1 irb: 交互式Ruby
+#### 2.1.2 Ruby是计算机的通用语
+#### 2.1.3 为什么Ruby是如此杰出的编程语言
+
+	10.times do print "Hello world!" end
+	
+	User.find_by_email('me@privacy.net').country = 'Belgium'
+
+#### 2.1.4 心灵小径
+
+### 2.2 把思路转变成Ruby代码
+
+#### 2.2.1 Ruby怎么理解对象和类的概念
+#### 2.2.2 造人过程
+
+	class Person
+			attr_accessor :name, :age, :gender
+	end
+
+上一行代码为Person类提供了三个属性(attributes). 每个Person都有`name`,`age`和`gender`, `attr`代表`attribute`(属性)，而`accessor`大概表示“让这些属性可以访问，可被设置和修改”。
+
+#### 2.2.3 基础变量
+
+#### 2.2.4 从人到宠物
+
+### 2.3 一切都是对象
+
+#### 2.3.1 Kernel模块的方法
+
+	Kernel.puts "Hello, World!"
+
+#### 2.3.2 向方法传递数据
+
+#### 2.3.3 使用String类的方法
+
+![][image-1]
+
+<<<<<<< HEAD
+[image-1]:images/2-1.jpg
+=======
+[image-1]:	images/2-1.jpg
+>>>>>>> 3611aa5df10c51a4014f6e592ff1a089a516abcf
