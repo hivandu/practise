@@ -11,3 +11,4 @@ dist/
 .deploy/
 yarn.lock
 resource/
+.ipynb_checkpoints/
