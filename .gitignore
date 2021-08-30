@@ -10,3 +10,5 @@ public/
 dist/
 .deploy/
 yarn.lock
+resource/
+cnews.train.txt
