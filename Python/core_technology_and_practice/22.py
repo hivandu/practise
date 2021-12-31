@@ -14,21 +14,14 @@ async def download_all(sites):
 
 def main():
     sites = [
-    'https://en.wikipedia.org/wiki/Portal:Arts',
-    'https://en.wikipedia.org/wiki/Portal:History',
-    'https://en.wikipedia.org/wiki/Portal:Society',
-    'https://en.wikipedia.org/wiki/Portal:Biography',
-    'https://en.wikipedia.org/wiki/Portal:Mathematics',
-    'https://en.wikipedia.org/wiki/Portal:Technology',
-    'https://en.wikipedia.org/wiki/Portal:Geography',
-    'https://en.wikipedia.org/wiki/Portal:Science',
-    'https://en.wikipedia.org/wiki/Computer_science',
-    'https://en.wikipedia.org/wiki/Python_(programming_language)',
-    'https://en.wikipedia.org/wiki/Java_(programming_language)',
-    'https://en.wikipedia.org/wiki/PHP',
-    'https://en.wikipedia.org/wiki/Node.js',
-    'https://en.wikipedia.org/wiki/The_C_Programming_Language',
-    'https://en.wikipedia.org/wiki/Go_(programming_language)'
+        'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143655',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143656',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143657',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143658',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143659',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143660',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143661',
+		'http://www.dapenti.com/blog/readforwx.asp?name=xilei&id=143662'
     ]
     start_time = time.perf_counter()
     asyncio.run(download_all(sites))
