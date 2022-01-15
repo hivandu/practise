@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/du/git/practise/build",
+  "command": "/opt/homebrew/bin/g++-11 -I/Users/du/git/practise/C++/. -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu++14 -o CMakeFiles/C__.dir/hello.cpp.o -c /Users/du/git/practise/C++/hello.cpp",
+  "file": "/Users/du/git/practise/C++/hello.cpp"
+}
+]

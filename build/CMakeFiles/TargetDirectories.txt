@@ -1,0 +1,3 @@
+/Users/du/git/practise/build/CMakeFiles/rebuild_cache.dir
+/Users/du/git/practise/build/CMakeFiles/edit_cache.dir
+/Users/du/git/practise/build/CMakeFiles/C__.dir
