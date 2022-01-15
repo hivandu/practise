@@ -10,5 +10,6 @@ int main() {
     FILE *fout = fopen("output", "w");
     fprintf(stdout, "stdout = %s\n", str);
     fprintf(stderr, "stderr = %s\n", str);
+
     return 0;
 }
