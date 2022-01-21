@@ -5,7 +5,7 @@
  * @mail: doo@hivan.me
  * @Date: 2022-01-20 20:42:50
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-20 20:53:49
+ * @LastEditTime: 2022-01-21 13:22:05
  */
 #include <stdio.h>
 
@@ -16,6 +16,7 @@ int ex_gcd(int a, int b, int *x, int *y) {
         return a;
     }
     int xx, yy, ret = ex_gcd(b, a % b, &xx, &yy);
+    printf("xx = %d, yy = %d\n", xx, yy);
     *x = yy;
     *y = xx - a / b * yy;
     return ret;
