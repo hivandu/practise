@@ -5,7 +5,7 @@
  * @mail: doo@hivan.me
  * @Date: 2022-01-21 16:45:53
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-22 13:20:58
+ * @LastEditTime: 2022-01-22 13:23:53
  */
 #include <stdio.h>
 #include <stdarg.h>
@@ -47,8 +47,7 @@ int my_printf(const char *frm, ...) {
                     case '%': PUTC(frm[i]); break;
                     case 'd': {
                         int x = va_arg(arg, int);
-                        uint32_t xx = 0;
-
+                        uint32_t xx = 0; // 定义一个xx用于存储更大值
                         if (x < 0) PUTC('-'), xx = -x; // 输出负数
                         else xx = x;
                         int x1 = xx / 100000, x2 = xx % 100000; // 前5位为x1, 后五位为x2
@@ -61,6 +60,12 @@ int my_printf(const char *frm, ...) {
                         cnt += output_num(temp1, digit1);
                         cnt += output_num(temp2, digit2);
                     } break;
+                    case 's': { // 增加%s的值获取
+                        const char *str = va_arg(arg, const char *);
+                        for (int i = 0; str[i]; i++) {
+                            PUTC(str[i]);
+                        }
+                    }
                 }
             } break;
             default: PUTC(frm[i]); break;
@@ -88,6 +93,7 @@ int main() {
     my_printf("INT32_MAX = %d\n", INT32_MAX);
     printf("INT32_MIN = %d\n", INT32_MIN);
     my_printf("INT32_MIN = %d\n", INT32_MIN);
-
+    printf("%s\n", "Hello Simon");
+    my_printf("%s\n", "Hello Simon");
     return 0;
 }
