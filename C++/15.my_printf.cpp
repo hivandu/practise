@@ -5,11 +5,30 @@
  * @mail: doo@hivan.me
  * @Date: 2022-01-21 16:45:53
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-21 19:42:43
+ * @LastEditTime: 2022-01-22 13:20:58
  */
 #include <stdio.h>
 #include <stdarg.h>
 #include <inttypes.h> 
+
+int output_num(int x, int digit) {
+    int cnt = 0;
+    while (x) {
+        putchar(x % 10 + 48), ++ cnt;
+        x /= 10;
+    }
+    return cnt;
+}
+
+int reverse_num(int x, int *temp) {
+    int cnt = 0;
+    do {
+        *temp = *temp * 10 + x % 10;
+        x /= 10;
+        cnt++;
+    } while (x);
+    return cnt;
+}
 
 // const: 常量修饰符
 int my_printf(const char *frm, ...) {
@@ -28,17 +47,19 @@ int my_printf(const char *frm, ...) {
                     case '%': PUTC(frm[i]); break;
                     case 'd': {
                         int x = va_arg(arg, int);
-                        if (x < 0) PUTC('-'), x = -x; // 输出负数
-                        int temp = 0, digit = 0;
-                        do { // 为了输出0, 先执行再循环
-                            temp = temp * 10 + x % 10;
-                            x /= 10;
-                            digit++; // 添加位数
-                        } while (x);
-                        while (digit--) { // 递减位数
-                            PUTC(temp % 10 + '0');
-                            temp /= 10;
-                        }
+                        uint32_t xx = 0;
+
+                        if (x < 0) PUTC('-'), xx = -x; // 输出负数
+                        else xx = x;
+                        int x1 = xx / 100000, x2 = xx % 100000; // 前5位为x1, 后五位为x2
+                        int temp1 = 0, temp2 = 0;
+                        int digit1 = reverse_num(x1, &temp1);
+                        int digit2 = reverse_num(x2, &temp2);
+                        
+                        if (x1) digit2 = 5;
+                        else digit1 = 0;
+                        cnt += output_num(temp1, digit1);
+                        cnt += output_num(temp2, digit2);
                     } break;
                 }
             } break;
