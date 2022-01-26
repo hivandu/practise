@@ -1,24 +1,21 @@
 /*
- * @Descripttion: 
- * @version: 
  * @Author: Hivan Du
  * @mail: doo@hivan.me
- * @Date: 2022-01-20 20:42:50
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-21 13:22:05
+ * @LastEditTime: 2022-01-26 13:53:41
  */
 #include <stdio.h>
 
-// 定义两个指针变量x, y
-int ex_gcd(int a, int b, int *x, int *y) {
+int ex_gcd(int a, int b, int *x, int *y) { // 定义两个指针变量x, y
     if (!b) {
         *x = 1, *y = 0;
         return a;
     }
-    int xx, yy, ret = ex_gcd(b, a % b, &xx, &yy);
-    printf("xx = %d, yy = %d\n", xx, yy);
-    *x = yy;
-    *y = xx - a / b * yy;
+    // int xx, yy, ret = ex_gcd(b, a % b, &xx, &yy);
+    // *x = yy;
+    // *y = xx - a / b * yy;
+    int ret = ex_gcd(b, a%b, y, x);
+    *y -= a / b *(*x);
     return ret;
 }
 

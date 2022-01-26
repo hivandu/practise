@@ -5,7 +5,7 @@
  * @mail: doo@hivan.me
  * @Date: 2022-01-21 16:45:53
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-22 13:23:53
+ * @LastEditTime: 2022-01-22 13:50:55
  */
 #include <stdio.h>
 #include <stdarg.h>
@@ -14,7 +14,7 @@
 int output_num(int x, int digit) {
     int cnt = 0;
     while (x) {
-        putchar(x % 10 + 48), ++ cnt;
+        putchar(x % 10 + 48), ++cnt;
         x /= 10;
     }
     return cnt;
