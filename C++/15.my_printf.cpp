@@ -5,7 +5,7 @@
  * @mail: doo@hivan.me
  * @Date: 2022-01-21 16:45:53
  * @LastEditors: Hivan Du
- * @LastEditTime: 2022-01-22 13:50:55
+ * @LastEditTime: 2022-01-30 13:23:20
  */
 #include <stdio.h>
 #include <stdarg.h>
@@ -13,7 +13,7 @@
 
 int output_num(int x, int digit) {
     int cnt = 0;
-    while (x) {
+    while (digit--) {
         putchar(x % 10 + 48), ++cnt;
         x /= 10;
     }
@@ -54,10 +54,13 @@ int my_printf(const char *frm, ...) {
                         int temp1 = 0, temp2 = 0;
                         int digit1 = reverse_num(x1, &temp1);
                         int digit2 = reverse_num(x2, &temp2);
-                        
-                        if (x1) digit2 = 5;
+
+                        int digit3 = 0;
+
+                        if (x1) digit3 = 5 - digit2;
                         else digit1 = 0;
                         cnt += output_num(temp1, digit1);
+                        cnt += output_num(0, digit3);
                         cnt += output_num(temp2, digit2);
                     } break;
                     case 's': { // 增加%s的值获取
@@ -77,6 +80,7 @@ int my_printf(const char *frm, ...) {
 }
 
 int main() {
+    
     int a = 123;
 
     printf("Hello Simon\n");
@@ -93,7 +97,9 @@ int main() {
     my_printf("INT32_MAX = %d\n", INT32_MAX);
     printf("INT32_MIN = %d\n", INT32_MIN);
     my_printf("INT32_MIN = %d\n", INT32_MIN);
-    printf("%s\n", "Hello Simon");
-    my_printf("%s\n", "Hello Simon");
+    printf("int (a) = %d\n", 100500);
+    my_printf("int (a) = %d\n", 100500);
+    printf("int (a) = %d\n", 105000);
+    my_printf("int (a) = %d\n", 105000);
     return 0;
 }
